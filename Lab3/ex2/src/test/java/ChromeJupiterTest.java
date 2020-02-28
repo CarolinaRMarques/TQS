@@ -7,9 +7,9 @@ import static org.hamcrest.CoreMatchers.containsString;
         import org.junit.jupiter.api.extension.ExtendWith;
         import org.openqa.selenium.chrome.ChromeDriver;
 
-      //  import io.github.bonigarcia.seljup.SeleniumExtension;
+        import io.github.bonigarcia.seljup.SeleniumExtension;
 
-//@ExtendWith(SeleniumExtension.class)
+@ExtendWith(SeleniumExtension.class)
 class ChromeJupiterTest {
 
     @Test

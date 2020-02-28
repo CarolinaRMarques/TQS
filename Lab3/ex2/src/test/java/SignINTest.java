@@ -1,12 +1,19 @@
+import io.github.bonigarcia.seljup.SeleniumExtension;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
+@ExtendWith(SeleniumExtension.class)
 public class SignINTest {
   private WebDriver driver;
   private Map<String, Object> vars;
@@ -38,6 +45,10 @@ public class SignINTest {
     driver.findElement(By.id("password")).sendKeys("carol8956");
     driver.findElement(By.id("password")).sendKeys(Keys.ENTER);
     driver.findElement(By.linkText("Sign out")).click();
-    driver.findElement(By.id("content")).click();
+    driver.findElement(By.id("top-menu")).click();
+    driver.findElement(By.id("header")).click();
+    driver.findElement(By.id("top-menu")).click();
+    assertThat(driver.findElement(By.linkText("Sign in")).getText(), is("Sign in"));
+
   }
 }
