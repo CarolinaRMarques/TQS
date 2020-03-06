@@ -1,16 +1,15 @@
 package salarySearch;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class SalaryManager {
-    private Map<Integer, Employee> employees = new HashMap<>();
+    private Map<Integer, Employee> employees;
 
     public SalaryManager(final List<Employee> employees) {
-        this.employees = employees.stream().collect(Collectors.toMap(Employee::getId, Function.<Employee> identity()));
+        this.employees = employees.stream().collect(Collectors.toMap(Employee::getId, Function.identity()));
     }
 
     public void increaseSalary(final Integer id, final int increaseInPercent) {

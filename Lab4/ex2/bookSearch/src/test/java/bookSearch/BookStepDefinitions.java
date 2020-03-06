@@ -26,12 +26,12 @@ public class BookStepDefinitions {
         result = library.findBooks(from, to);
     }
 
-    @Then("(\\d+) books should have been found$")
+    @Then ("{int} books should have been found")
     public void verifyAmountOfBooksFound(final int booksFound) {
         assertThat(result.size(), equalTo(booksFound));
     }
 
-    @Then("Book (\\d+) should have the title '(.+)'$")
+    @Then("Book {int} should have the title {string}")
     public void verifyBookAtPosition(final int position, final String title) {
         assertThat(result.get(position - 1).getTitle(), equalTo(title));
     }
