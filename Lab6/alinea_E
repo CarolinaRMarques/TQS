@@ -1,0 +1,27 @@
+Quality gate Status -> Passed 
+
+Issue -> Problem Description -> How to Solve
+
+Bug	-> "Random" objects should be reused -> For better efficiency and randomness, create a single Random, then store, and reuse it. 
+	rand = SecureRandom.getInstanceStrong();  // SecureRandom is preferred to Random  
+	public void doSomethingCommon() {  
+	int rValue = this.rand.nextInt();   //...
+	
+Code Smell(Critical) -> Constant names should comply with a naming convention  ->  Rename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.
+
+	public class MyClass {
+	  public static final int FIRST = 1;
+	}
+
+	public enum MyEnum {
+	  FIRST;
+	}
+		
+Code Smell(Major) -> "for" loop stop conditions should be invariant -> Refactor the code in order to not assign to this loop counter from within the loop body.  
+
+	for (int i = 0; i < 10; i++) {...}
+
+Code Smell (Major) -> Unused method parameters should be removed -> Remove this unused method parameter "subset" 
+
+Code Smell (Major) -> Standard outputs should not be used directly to log anything -> Replace this use of System.out or System.err by a logger.
+	logger.log("My Message");
