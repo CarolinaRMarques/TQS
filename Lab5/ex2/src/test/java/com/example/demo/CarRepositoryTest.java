@@ -16,8 +16,8 @@ public class CarRepositoryTest {
     private CarRepository repo;
 
     @Test
-    public void whenFindByName_thenReturnEmployee() {
-       Car a = new Car("focus","focus");
+    public void whenFindByName_thenReturnCar() {
+        Car a = new Car("focus","toyota");
         entityManager.persistAndFlush(a);
 
         Car found = repo.findByName(a.getName());

@@ -17,6 +17,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(MockitoExtension.class)
 public class CarServiceTest {
 
+    // lenient is required because we load some expectations in the setup
+    // that are not used in all the tests. As an alternative, the expectations
+    // could move into each test method and be trimmed: no need for lenient
     @Mock(lenient = true)
     private CarRepository carRepository;
     @InjectMocks
@@ -27,7 +30,7 @@ public class CarServiceTest {
         Car a = new Car("focus", "ford");
         Mockito.when(carRepository.findByName(a.getName())).thenReturn(a);
         Mockito.when(carRepository.findByName("wrong_name")).thenReturn(null);
-        Mockito.when(carRepository.findById(a.getId())).thenReturn(Optional.of(a));
+        //Mockito.when(carRepository.findById(a.getId())).thenReturn(Optional.of(a));
     }
 
 

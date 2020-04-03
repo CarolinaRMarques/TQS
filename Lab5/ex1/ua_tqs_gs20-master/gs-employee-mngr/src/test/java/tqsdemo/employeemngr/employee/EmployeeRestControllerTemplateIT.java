@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import java.io.IOException;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 //@TestPropertySource( locations = "application-integrationtest.properties")

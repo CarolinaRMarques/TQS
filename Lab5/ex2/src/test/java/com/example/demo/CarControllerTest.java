@@ -18,18 +18,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class CarControllerTest {
 
     @Autowired
-    MockMvc servlet;
+    private MockMvc servlet;
 
     @MockBean
-    CarService carService;
+    private CarService carService;
 
     @Test
     public void whenGetCar_theReturnCar() throws Exception {
-        given( carService.getCarDetails( anyString())).willReturn( new Car("prius", "toyota"));
+        given(carService.getCarDetails(anyString())).willReturn( new Car("prius", "toyota"));
 
         servlet.perform(MockMvcRequestBuilders.get("/api/cars/prius"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("name").value("prius"));
+
     }
 
     @Test
